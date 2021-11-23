@@ -6,9 +6,7 @@ const bootcamps = require('./routes/bootcamps')
 
 // Load env vars
 
-
 dotenv.config({ path: './config/config.env'});
-
 
 const app = express();
 
