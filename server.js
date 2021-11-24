@@ -1,14 +1,19 @@
 const express = require('express');
 const dotenv = require('dotenv');
-
+const morgan = require('morgan');
 // Route Files
-const bootcamps = require('./routes/bootcamps')
+const bootcamps = require('./routes/bootcamps');
 
 // Load env vars
 
-dotenv.config({ path: './config/config.env'});
+dotenv.config({ path: './config/config.env' });
 
 const app = express();
+
+//Dev Logging middleware  **********ToDo --->uncomment if statement, delete true
+if(/*process.env.NODE_ENV === 'development'*/true){
+  app.use(morgan('dev'))
+}
 
 //Mount Routers
 app.use('/api/v1/bootcamps', bootcamps);
